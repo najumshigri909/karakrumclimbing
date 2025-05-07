@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Bondit Peak Expedition - Professional guided climb to the 6660m peak in the Karakoram range with Climbing Karakorum">
+  <title>Bondit Peak Expedition (6660m) - Climbing Karakorum</title>
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+    <style>
+      /* Base Variables */
+      :root {
+        --primary: #1a56a7;
+        --primary-dark: #0d3b7a;
+        --secondary: #f59e0b;
+        --secondary-dark: #d97706;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gray: #64748b;
+        --light-gray: #e2e8f0;
+        --success: #10b981;
+        --danger: #ef4444;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+  
+      /* Expedition Page Specific Styles */
+      .expedition-hero {
+        position: relative;
+        height: 70vh;
+        min-height: 500px;
+        background-image: url('images/expadition/Expedition-1.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+  
+      .expedition-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+  
+      .expedition-hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+      }
+  
+      .expedition-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
+      }
+  
+      .expedition-hero .breadcrumb {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+  
+      .expedition-hero .breadcrumb a {
+        color: var(--secondary);
+        transition: color 0.3s ease;
+      }
+  
+      .expedition-hero .breadcrumb a:hover {
+        color: white;
+      }
+  
+      .expedition-hero .breadcrumb span {
+        opacity: 0.8;
+      }
+  
+      .expedition-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+  
+      @media (min-width: 1024px) {
+        .expedition-details {
+          grid-template-columns: 1fr 350px;
+        }
+      }
+  
+      .expedition-content {
+        width: 100%;
+        overflow: hidden;
+      }
+  
+      .expedition-content h2 {
+        font-size: clamp(1.8rem, 3vw, 2rem);
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+  
+      .expedition-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background-color: var(--secondary);
+        border-radius: 3px;
+      }
+  
+      .expedition-content h3 {
+        font-size: clamp(1.4rem, 2.5vw, 1.5rem);
+        margin: 2rem 0 1rem;
+        color: var(--primary);
+      }
+  
+      .expedition-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        color: var(--dark);
+      }
+  
+      .expedition-content ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+  
+      .expedition-content li {
+        position: relative;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+  
+      .expedition-content li::before {
+        content: '•';
+        color: var(--secondary);
+        font-weight: bold;
+        position: absolute;
+        left: -1rem;
+      }
+  
+      /* Expedition Specifications Section */
+      .expedition-specs {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid var(--secondary);
+      }
+  
+      .expedition-specs h2 {
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+  
+      .specs-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+  
+      @media (min-width: 768px) {
+        .specs-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+      }
+  
+      .specs-column {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+  
+      .specs-column h3 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--light-gray);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+  
+      .spec-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #eee;
+      }
+  
+      .spec-item:last-child {
+        border-bottom: none;
+      }
+  
+      .spec-label {
+        font-weight: 600;
+        color: var(--dark);
+        flex: 1;
+      }
+  
+      .spec-value {
+        color: var(--primary);
+        font-weight: 500;
+        text-align: right;
+        flex: 1;
+      }
+  
+      @media (max-width: 480px) {
+        .spec-item {
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+  
+        .spec-label,
+        .spec-value {
+          text-align: left;
+        }
+      }
+  
+      .expedition-sidebar {
+        position: relative;
+        width: 100%;
+      }
+  
+      .expedition-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 20px;
+        padding: 40px;
+        max-width: 4200px;
+      }
+  
+      .sidebar-title {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--light-gray);
+        text-align: center;
+      }
+  
+      .expedition-info {
+        max-width: 2050px;
+        margin: 0 auto;
+      }
+  
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+        gap: 1.5rem;
+      }
+  
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        background: rgba(245, 158, 11, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid var(--secondary);
+      }
+  
+      .info-icon {
+        color: var(--secondary);
+        font-size: 1.1rem;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: 50%;
+      }
+  
+      .info-label {
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight: 500;
+        margin-bottom: 3px;
+      }
+  
+      .info-value {
+        font-weight: 600;
+        color: var(--dark);
+      }
+  
+      .price-box {
+        text-align: center;
+        margin: 25px 0;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+        border-radius: 8px;
+        border: 1px dashed var(--secondary);
+      }
+  
+      .price-amount {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+        line-height: 1;
+      }
+  
+      .price-note {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-bottom: 5px;
+      }
+  
+      .price-details {
+        font-size: 0.8rem;
+        color: var(--secondary-dark);
+        font-weight: 500;
+      }
+  
+      .book-btn {
+        width: 100%;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 600;
+        padding: 15px;
+      }
+  
+      .departures-section {
+        margin-bottom: 25px;
+      }
+  
+      .departures-title {
+        font-size: 1rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+  
+      .departures-list {
+        border: 1px solid var(--light-gray);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+  
+      .departure-item {
+        padding: 12px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--light-gray);
+      }
+  
+      .departure-item:last-child {
+        border-bottom: none;
+      }
+  
+      .departure-date {
+        font-weight: 500;
+      }
+  
+      .departure-status {
+        font-size: 0.8rem;
+        padding: 3px 8px;
+        border-radius: 12px;
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+      }
+  
+      .gallery {
+        margin: 4rem 0;
+      }
+  
+      .gallery h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+  
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+  
+      .gallery-item {
+        height: 250px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        position: relative;
+      }
+  
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+  
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+  
+      .itinerary {
+        margin: 4rem 0;
+      }
+  
+      .itinerary h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+  
+      .itinerary-item {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+  
+      .itinerary-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+  
+      .itinerary-day {
+        font-weight: 600;
+        color: var(--primary);
+        min-width: 70px;
+      }
+  
+      .itinerary-title {
+        flex-grow: 1;
+        margin: 0 1rem;
+      }
+  
+      .itinerary-toggle {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--light-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+  
+      .itinerary-item.active .itinerary-toggle {
+        background-color: var(--secondary);
+        color: white;
+        transform: rotate(180deg);
+      }
+  
+      .itinerary-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+  
+      .itinerary-item.active .itinerary-content {
+        max-height: 1000px;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--light-gray);
+      }
+  
+      /* Enhanced Contact Form Styles */
+      /* .contact-form-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-lg);
+        margin: 3rem 0;
+        border-top: 4px solid var(--secondary);
+      } */
+  
+      .contact-form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+  
+      .contact-form-header h3 {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      .contact-form-header p {
+        color: var(--gray);
+        font-size: 0.95rem;
+      }
+  
+      .expedition-contact-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+  
+      @media (min-width: 768px) {
+        .expedition-contact-form {
+          grid-template-columns: repeat(2, 1fr);
+        }
+  
+        .form-group-full {
+          grid-column: span 2;
+        }
+      }
+  
+      .form-group {
+        display:flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+      }
+  
+      .form-group label {
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+        color: var(--dark);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+      }
+  
+      .form-group label .required {
+        color: var(--danger);
+        margin-left: 4px;
+      }
+  
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 0.8rem 1.3rem;
+        border: 1px solid var(--light-gray);
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+        background-color: #f8fafc;
+      }
+  
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(26, 86, 167, 0.1);
+        background-color: white;
+      }
+  
+      .form-group textarea {
+        resize: vertical;
+        min-height: 140px;
+        line-height: 1.6;
+      }
+  
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 12px;
+      }
+  
+      .form-checkbox {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+  
+      .form-checkbox input {
+        width: auto;
+        margin: 0;
+        flex-shrink: 0;
+      }
+  
+      .form-checkbox label {
+        margin: 0;
+        font-weight: normal;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+  
+      .form-actions {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+  
+      .form-submit-btn {
+        width: 100%;
+        padding: 1rem;
+        font-weight: 600;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        transition: all 0.3s ease;
+      }
+  
+      .form-submit-btn:hover {
+        transform: translateY(-2px);
+      }
+  
+      .form-submit-btn .spinner {
+        display: none;
+        animation: spin 1s linear infinite;
+      }
+  
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+  
+      .form-success-message {
+        display: none;
+        text-align: center;
+        padding: 2.5rem 1rem;
+        background-color: rgba(16, 185, 129, 0.05);
+        border-radius: 8px;
+        border: 1px dashed var(--success);
+      }
+  
+      .form-success-message i {
+        font-size: 3.5rem;
+        color: var(--success);
+        margin-bottom: 1.5rem;
+      }
+  
+      .form-success-message h4 {
+        font-size: 1.6rem;
+        color: var(--primary);
+        margin-bottom: 0.8rem;
+      }
+  
+      .form-success-message p {
+        color: var(--gray);
+        margin-bottom: 0;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .form-error {
+        color: var(--danger);
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        display: none;
+      }
+  
+      /* Form submission state */
+      .form-submitted .expedition-contact-form {
+        display: none;
+      }
+  
+      .form-submitted .form-success-message {
+        display: block;
+      }
+  
+      /* Help Section */
+      .help-section {
+        background-color: rgba(26, 86, 167, 0.05);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 3px solid var(--primary);
+        margin-top: 2rem;
+      }
+  
+      .help-text {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+  
+      .help-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+      /* Related Trips Styles */
+  .related-trips {
+    padding: 5rem 0;
+    background-color: #f8fafc;
+    margin: 4rem 0;
+  }
+  
+  .related-trips h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+  }
+  
+  .trip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .trip-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .trip-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .trip-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .trip-card:hover .trip-image img {
+    transform: scale(1.05);
+  }
+  
+  .trip-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--secondary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .trip-content {
+    padding: 1.5rem;
+  }
+  
+  .trip-content h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .trip-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+  
+  .trip-meta i {
+    margin-right: 5px;
+    color: var(--secondary);
+  }
+  
+  .trip-content p {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .trip-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .trip-price {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1.1rem;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .related-trips {
+      padding: 3rem 0;
+    }
+    
+    .trip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+      /* Call to Action */
+      .cta-section {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        padding: 80px 0;
+        color: white;
+        text-align: center;
+        margin-bottom: -1px;
+        /* Fix for potential gap */
+      }
+  
+      .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+  
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+  
+      .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+  
+      .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+  
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+  
+  
+      /* Responsive adjustments */
+      @media (max-width: 1024px) {
+        .expedition-card {
+          max-width: 100%;
+        }
+  
+        .expedition-hero h1 {
+          font-size: 2.5rem;
+        }
+  
+        .cta-content h2 {
+          font-size: 2rem;
+        }
+      }
+  
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+        }
+  
+        .main-nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: white;
+          padding: 100px 30px 30px;
+          transform: translateX(100%);
+          overflow-y: auto;
+        }
+  
+        .main-nav.active {
+          transform: translateX(0);
+        }
+  
+        .nav-list {
+          flex-direction: column;
+          gap: 0;
+        }
+  
+        .nav-link,
+        .dropdown-btn {
+          padding: 15px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          width: 100%;
+          justify-content: space-between;
+        }
+  
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          padding: 0;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          display: none;
+        }
+  
+        .dropdown:hover .dropdown-menu,
+        .dropdown-btn[aria-expanded="true"]+.dropdown-menu {
+          display: block;
+        }
+  
+        .submenu-list {
+          position: static;
+          box-shadow: none;
+          transform: none;
+        }
+  
+        .book-now-btn {
+          display: none;
+        }
+  
+        .expedition-hero {
+          height: 60vh;
+          min-height: 400px;
+        }
+  
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+  
+        .cta-section {
+          padding: 60px 0;
+        }
+  
+        .cta-content h2 {
+          font-size: 1.8rem;
+        }
+  
+        .cta-content p {
+          font-size: 1rem;
+        }
+  
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+  
+        .itinerary-header {
+          flex-wrap: wrap;
+        }
+  
+        .itinerary-day {
+          margin-bottom: 10px;
+        }
+  
+        .itinerary-title {
+          margin: 0 0 10px 0;
+          width: 100%;
+        }
+      }
+  
+      @media (max-width: 480px) {
+        .expedition-hero {
+          height: 50vh;
+        }
+  
+        .expedition-hero h1 {
+          font-size: 1.8rem;
+        }
+  
+        .contact-info {
+          flex-direction: column;
+          gap: 8px;
+        }
+  
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+  
+        .specs-column {
+          padding: 1rem;
+        }
+  
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+  
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+  
+        .contact-form-container {
+          padding: 1.5rem;
+        }
+  
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+          padding: 0.8rem 1rem;
+        }
+      }
+    </style>
+</head>
+
+<body>
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +92-332-5499737</span>
+        <span><i class="fas fa-envelope"></i> info@baltistanadventure.com</span>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo/Climbing_Karakorum_logo-02-removebg-preview.png" alt="Climbing Karakoram Logo" width="120"
+          height="120">
+        <span class="logo-text">Climbing Karakorum</span>
+      </a>
+
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Expeditions <i class="fas fa-chevron-down dropdown-icon"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">6000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="bonditpeak.html" class="active">Bondit Peak Expeditions</a></li>
+                    <li><a href="Drifikapeak.html">Drifika Peak Expeditions</a></li>
+                    <li><a href="gondogoro-peak.html">Gandogoro Peak Expeditions</a></li>
+                    <li><a href="lailapeak.html">Laila Peak Expeditions</a></li>
+                    <li><a href="pajupeak.html">Paju Peak Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">7000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="rakaposhipeak.html">Rakaposhi Expeditions</a></li>
+                    <li><a href="masherbrumpeak.html">Masherbrum Expeditions</a></li>
+                    <li><a href="spantikpeak.html">Spantik Expeditions</a></li>
+                    <li><a href="diranpeak.html">Diran Peak Expeditions</a></li>
+                    <li><a href="gasherbrum4peak.html">Gasherbrum 4 Expeditions</a></li>
+                    <li><a href="gasherbrum6peak.html">Gasherbrum 6 Expeditions</a></li>
+                    <li><a href="passupeak.html">Passu Sar Expeditions</a></li>
+                    <li><a href="ultrapeak.html">Ultra Sar Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">8000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="K2peak.html">K2 Expeditions</a></li>
+                    <li><a href="Broadpeak.html">Broad Peak Expeditions</a></li>
+                    <li><a href="Gasherbrum1peak.html">Gasherbrum I Expeditions</a></li>
+                    <li><a href="Gasherbrum2peak.html">Gasherbrum 2 Expeditions</a></li>
+                    <li><a href="Nangaparbatpeak.html">Nanga Parbat Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Rock Climbing <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="Trangotowerpeak.html">Trango Tower Expeditions</a></li>
+                    <li><a href="Nangmavalleypeak.html">Nangma Valley Expeditions</a></li>
+                    <li><a href="Latokogrepeak.html">Latok Ogre Expeditions</a></li>
+                    <li><a href="Shiptonspairpeak.html">Shipton Spair Expeditions</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Trekking <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Karakoram Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">K2 B.C & Gandogoro La Trek</a></li>
+                    <li><a href="#">K2 Gandogoro La Trek</a></li>
+                    <li><a href="#">Biafo & Snow Lake Trek</a></li>
+                    <li><a href="#">Charakusa valley Trek</a></li>
+                    <li><a href="#">Iqbal Top Trek</a></li>
+                    <li><a href="#">Nangma Valley Trek</a></li>
+                    <li><a href="#">Masherbrum Base Camp Trek</a></li>
+                    <li><a href="#">Five Base Camp Trek</a></li>
+                    <li><a href="#">Pastore Base Camp Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Himalayan Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Hindush Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nalter Ishkoman Trek</a></li>
+                    <li><a href="#">Trich Mir Base Camp Trek</a></li>
+                    <li><a href="#">Chilinji Pass Trek</a></li>
+                    <li><a href="#">Darkot Pass Trek</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Tours <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Autumn Session <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Spring Session <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Summer Season <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Winter Season <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Travel Info <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Mountaineering Rule</button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Mountains list in Pakistan </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Peak royalty in Pakistan </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Trem and conditions </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Company info, Vision statement, Mission</button>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <a href="#booking" class="btn btn-primary book-now-btn">Book Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+
+  <!-- Expedition Hero -->
+<section class="expedition-hero" style="background-image: url('images/expadition/bandit\ peak\ expadition.jpeg');">
+  <div class="expedition-hero-content">
+      <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="#">Expeditions</a>
+          <span>/</span>
+          <a href="#">7000M Peak</a>
+          <span>/</span>
+          <span>Spantik Peak</span>
+      </div>
+      <h1>Spantik Peak Expedation</h1>
+      <p>Conquer the Rakaposhi Peak in the heart of the Karakaran range with our expert guides.</p>
+  </div>
+</section>
+
+  <!-- Expedition Details -->
+  <div class="container">
+    <div class="expedition-details">
+      <div class="expedition-content">
+        <h2>Spantik Peak Expedition Overview</h2>
+        <p>Climbing Karakorum encourage for men and women to do Spantik (Golden Peak) from all around the world. SK team work dynamically and capable to build safe and successful climbing and trekking in entire of Karakoram and Himalaya range. Before you trying to climbing this Spantik peak, you should have to physical fit and active with good health. Spantik located with two face Nagar valley and Arandu Karakoram range. Spantik peak explore by British Pak army in 1959, and however climbed by Japanese expedition led by Nakamura from south ridge.
+        </p>
+
+        <h3>Expedition Highlights</h3>
+        <ul>
+          <li>Summit one of the most beautiful 6000m peaks in the Karakoram</li>
+          <li>Experience technical climbing on snow, ice, and rock</li>
+          <li>Spectacular views of K2 and other 8000m giants</li>
+          <li>Small group sizes with high guide-to-client ratios</li>
+          <li>Full logistical support including base camp services</li>
+          <li>Cultural experience in the remote Hushe Valley</li>
+        </ul>
+
+        <h3>Equipment List</h3> 
+        <ul>
+          <li>JACKETS:- Polar fleece jacket (wool sweater may be used but not recommended). Windproof / waterproof breathable jacket Gore tex or similar. Down jacket (optional but may be very useful during the cold nights and for trekking or mountaineering trips).</li>
+          <li>PANTS:- Regular pants (better if they can transform to shorts). Polar fleece pants (optional but may be useful during the cold nights and for trekking or mountaineering trips).</li>
+          <li>UNDERWEAR. Long top and bottom (synthetic mid weight thermal underwear better). </li>
+          <li>SOCKS. Regular cotton socks. Thick wool socks recommended for trekking or mountaineering trips</li>
+          <li>SHIRT. Long sleeve shirts recommended; in the highlands prevent from sunburn (also helpful when traveling to the jungle to avoid being bitten by mosquitoes).</li>
+          <li>FOOT WEAR. Light weight boots or shoes for regular traveling. HAT. Polar fleece head band, wool hat, or balaclava for the night, and sun hat with brim for the day.  </li>
+          <li>GLOVES. Thin gloves for regular traveling. Other clothing. Bathing suit and bandanas are optional but may be useful.  </li>
+          <li>PLASTIC BOOTS. Recommended for mountaineering trips on glaciers and above 6,000m (20,000ft), make sure they fit your crampons and do not hurt your feet. </li>
+          <li>LEATHER BOOTS. Recommended for short mountaineering trips usually below 6,000m (20,000ft). They are also good for “Trekking peak” trips to high volcanoes.</li>
+          <li>CRAMPONS. 12-point automatic crampons with protective bag recommended.</li>
+          <li>GAITERS. Useful for trekking trips as well. • Ice axe. Long glacier Ice Axe recommended for most of our climbing trips. Two short tools are recommended for technical climbs.  </li>
+          <li>HARNESSES. Sportive sit harnesses. </li>
+          <li>CLIMBING HELMET. It will depend of the climbing route, as norm we always recommend its use. </li>
+          <li>ASCENDER DEVICE or T-blocks are optional but recommended. </li>
+          <li>MASK. Polypropylene or silk masks are recommended for the cold conditions on the high altitude mountains, they can be improved with a neoprene mask. </li>
+
+
+        </ul>
+        <div class="gallery">
+          <h2>Expedition Gallery</h2>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="images/expadition/Expedition-1.jpg" alt="Bondit Peak view from base camp">
+            </div>
+            <div class="gallery-item">
+              <img src="images/expadition/Expedition-2.jpg" alt="Climbers on Bondit Peak">
+            </div>
+            <div class="gallery-item">
+              <img src="images/expadition/Expedition-3.jpg" alt="Bondit Peak summit ridge">
+            </div>
+            <div class="gallery-item">
+              <img src="images/expadition/Expedition-4.jpg" alt="Base camp at Bondit Peak">
+            </div>
+          </div>
+        </div>
+
+        <div class="itinerary">
+          <h2>Expedition Itinerary</h2>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 1</span>
+              <span class="itinerary-title"> Arrive Islamabad International Airport & Transfer to Hotel 512m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 2</span>
+              <span class="itinerary-title">Fly to Skardu or Drive from Islamabad - Chilas 1267m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 3</span>
+              <span class="itinerary-title">Skardu sightseeing or Drive from Chilas - Skardu 2467m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 4</span>
+              <span class="itinerary-title">Skardu briefing & final preparation of expedition 2467m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 5</span>
+              <span class="itinerary-title">Drive from Skardu - Arandu village 2770m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 6</span>
+              <span class="itinerary-title">Trek from Arandu village - Chogo Bransa 3300m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p>
+              </p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 7</span>
+              <span class="itinerary-title">Trek from Chogo Bransa - Bolocho 3800m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p>
+              </p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 8</span>
+              <span class="itinerary-title">Trek from Bolocho - Spantik Base Camp 4300m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+                <p>
+                </p>
+              </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 9</span>
+              <span class="itinerary-title">CLIMBING PERIOD (20 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 10</span>
+              <span class="itinerary-title">CLIMBING PERIOD (19 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 11</span>
+              <span class="itinerary-title">CLIMBING PERIOD (18 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 12</span>
+              <span class="itinerary-title">CLIMBING PERIOD (17 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 13</span>
+              <span class="itinerary-title">CLIMBING PERIOD (16 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+        <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 14</span>
+              <span class="itinerary-title">CLIMBING PERIOD (15 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 15</span>
+              <span class="itinerary-title">CLIMBING PERIOD (14 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 16</span>
+              <span class="itinerary-title">CLIMBING PERIOD (13 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 17</span>
+              <span class="itinerary-title">CLIMBING PERIOD (12 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 18</span>
+              <span class="itinerary-title">CLIMBING PERIOD (11 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 19</span>
+              <span class="itinerary-title">CLIMBING PERIOD (10 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+          
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 20</span>
+              <span class="itinerary-title">CLIMBING PERIOD (09 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 21</span>
+              <span class="itinerary-title">CLIMBING PERIOD (08 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 22</span>
+              <span class="itinerary-title">CLIMBING PERIOD (07 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 23</span>
+              <span class="itinerary-title">CLIMBING PERIOD (06 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 24</span>
+              <span class="itinerary-title">CLIMBING PERIOD (05 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 25</span>
+              <span class="itinerary-title">CLIMBING PERIOD (04 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 26</span>
+              <span class="itinerary-title">CLIMBING PERIOD (03 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 27</span>
+              <span class="itinerary-title">CLIMBING PERIOD (02 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 28</span>
+              <span class="itinerary-title">CLIMBING PERIOD (01 DAYS)</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 29</span>
+              <span class="itinerary-title">Trek return from Spantik Base Camp - Bolocho 3800m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 30</span>
+              <span class="itinerary-title">Trek return from Bolocho - Arandu Village 2770m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 31</span>
+              <span class="itinerary-title">Drive from Arandu village - Skardu 2467m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 32</span>
+              <span class="itinerary-title">Skardu farewell dinner 2467m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 33</span>
+              <span class="itinerary-title">Fly to Islamabad or drive from Skardu - Chilas 1265m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 34</span>
+              <span class="itinerary-title">Islamabad sightseeing or Drive from Chilas - Islamabad 512m</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+          <div class="itinerary-item">
+            <div class="itinerary-header">
+              <span class="itinerary-day">Day 35</span>
+              <span class="itinerary-title">Transfer to Islamabad international airport onward to your own destination.</span>
+              <span class="itinerary-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="itinerary-content">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Included Services</h3>
+        <ul>
+            <li>Air condition Transportation for Briefing & De-briefing in Alpine club of Pakistan / Ministry of Tourism.</li>
+            <li>Both Way domestic flights between Islamabad - Gilgit.</li>
+            <li>Both ways Air condition coarser / mini bus / car between Islamabad - gilgit.</li>
+            <li>Comfortable transportation between Gilgit - Juglar Nagar Valley.</li>
+            <li>Transportation for sightseeing.</li>
+            <li>These nights in Islamabad 3+4+ Hotel accommodation with bud & breakfast.</li>
+            <li>Two nights in Chilas best standard Hotel accommodation with full board.</li>
+            <li>One nights in Gilgit best standard Hotel accommodation with full board.</li>
+            <li>Expectation Baydley and climbing Perret.</li>
+            <li>Insurance premium for fuel and land porters.</li>
+            <li>Documentation.</li>
+            <li>Visa facilitation letter.</li>
+            <li>Professional guides to transfer exposition to base camp.</li>
+            <li>Way up 7Bug to transfer at base camp for 7000m peak expedition allow in our services.</li>
+            <li>Way down 5Bug allowing an average for 7000m peak expedition.</li>
+            <li>Monetary base camp staff have camp manager, Chief, Cook, and Assistance & Workers.</li>
+            <li>These meals a day and tea - coffee - snacks during the trek and base camp stays.</li>
+            <li>Solar panel / generator for light and battery charge at base camp.</li>
+            <li>Comfortable foam / mattress while trekking and base camp.</li>
+            <li>A north face lens provides as individual member at base camp.</li>
+            <li>Hot shower and toilet tents.</li>
+            <li>Comfortable chain and table while trekking and base camp stays.</li>
+            <li>Complete camping setup with offering & kitchen tents while trekking and base camp.</li>
+            <li>Important and local food during trekking and base camp stay.</li>
+            <li>Housing in detiring treat at base camp.</li>
+            <li>Medical first aid kit for group and staff.</li>
+            <li>Seafine phone for emergency calling at base camp.</li>
+            <li>Walkies table for base camp communication.</li>
+            <li>All camping and bridge ordering fee.</li>
+            <li>Assistance for international tickets reconfirmation.</li>
+            <li>Forward driver visit wood in Islamabad.</li>
+            <li>Barricoo ticket for 6500m -8000m Expedition if requisite.</li>
+          </ul>
+
+        <h3>Not Included</h3>
+        <ul>
+          <li>Member international flight tickets</li>
+          <li>Helicopter emergency rescue fees (refundable after deduction of service charge U$D 300/-) it is now
+            US$15000/-</li>
+          <li>Members any climbing gears</li>
+          <li>Member personal insurance</li>
+          <li>High altitude tent</li>
+          <li>Sleeping bag and all personal expenses such as telephone calls, fax, email charges, liquor or soft drinks
+          </li>
+          <li>Room service, gratuities for personal services, items of a purely personal nature</li>
+          <li>Custom clearing charges (import and export of equipment)</li>
+          <li>Any unforeseen expenses (such as road block extra hotel stay or if members stay more days at Base Camp)
+            then members will pay according to the number of days spent at Base Camp.</li>
+          <li>Trekking members and climbing members will come together. If any/some member split during the period then
+            extra expenses will be charged according to normal price.</li>
+
+        </ul>
+      </div>
+
+      <div class="expedition-sidebar">
+        <div class="expedition-card" id="booking">
+
+
+          <!-- Add this after the "Not Included" section -->
+          <h3>Contact Us for More Information</h3>
+          <p style="margin-bottom: 50px;"> <span style="font-size: 13px;">Trip name:</span> <span style="color: #f59e0b;">*</span>  Bondit peak Expadition</p>
+          <div class="contact-form-container">
+            <form style="display: block;" id="expeditionContactForm" class="expedition-contact-form">
+              <div class="form-group">
+                <label for="name"><span style="color: #f59e0b;">*</span>Full Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email"><span style="color: #f59e0b;">*</span>Email Address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="country"><span style="color: #f59e0b;">*</span>Country</label>
+                <select id="country" name="country">
+                  <option value="">Choose a country</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Brunei">Brunei</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cabo Verde">Cabo Verde</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo (Brazzaville)">Congo (Brazzaville)</option>
+                  <option value="Congo (Kinshasa)">Congo (Kinshasa)</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Eswatini">Eswatini</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea, North">Korea, North</option>
+                  <option value="Korea, South">Korea, South</option>
+                  <option value="Kosovo">Kosovo</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Micronesia">Micronesia</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montenegro">Montenegro</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="North Macedonia">North Macedonia</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau">Palau</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                  <option value="Saint Lucia">Saint Lucia</option>
+                  <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="South Sudan">South Sudan</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Timor-Leste">Timor-Leste</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Vatican City">Vatican City</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="phone"><span style="color: #f59e0b;">*</span>Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="number"><span style="color: #f59e0b;">*</span>No. of children</label>
+                <input type="number" id="number" name="number">
+              </div>
+              <div class="form-group">
+                <label for="number"><span style="color: #f59e0b;">*</span>No. of Adults</label>
+                <input type="number" id="number" name="number">
+              </div>
+              <div class="form-group">
+                <label for="text"><span style="color: #f59e0b;">*</span>Enquiry Subject.</label>
+                <input type="text" id="text" name="text">
+              </div>
+              <div class="form-group">
+                <label for="message"><span style="color: #f59e0b;">*</span>Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="form-group form-checkbox">
+                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                <label for="newsletter">Subscribe to our newsletter for updates</label>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+            <div id="formSuccessMessage" class="form-success-message">
+              <i class="fas fa-check-circle"></i>
+              <h4>Thank you for your inquiry!</h4>
+              <p>We've received your message and will get back to you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Related Trips Section -->
+<section class="related-trips">
+  <div class="container">
+    <h2>Related Trips You Might Be Interested In</h2>
+    <p class="section-subtitle">Explore other exciting expeditions in the Karakoram range</p>
+    
+    <div class="trip-grid">
+      <!-- Trip Card 1 -->
+      <div class="trip-card">
+        <div class="trip-image">
+          <img src="images/expadition/Expedition-3.jpg" alt="Drifika Peak Expedition">
+          <div class="trip-badge">6000m Peak</div>
+        </div>
+        <div class="trip-content">
+          <h3>Drifika Peak Expedition (6440m)</h3>
+          <div class="trip-meta">
+            <span><i class="fas fa-calendar-alt"></i> 25 Days</span>
+            <span><i class="fas fa-mountain"></i> Technical</span>
+          </div>
+          <p>A challenging technical climb in the Hushe Valley with spectacular views of K2 and other 8000m peaks.</p>
+          <div class="trip-footer">
+            <span class="trip-price">From $4,200</span>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Trip Card 2 -->
+      <div class="trip-card">
+        <div class="trip-image">
+          <img src="images/expadition/Expedition-2.jpg" alt="Gandogoro Peak Expedition">
+          <div class="trip-badge">6000m Peak</div>
+        </div>
+        <div class="trip-content">
+          <h3>Gandogoro Peak Expedition (5900m)</h3>
+          <div class="trip-meta">
+            <span><i class="fas fa-calendar-alt"></i> 22 Days</span>
+            <span><i class="fas fa-mountain"></i> Moderate</span>
+          </div>
+          <p>An ideal first 6000m peak with stunning views of the Gondogoro La and the Baltoro Glacier.</p>
+          <div class="trip-footer">
+            <span class="trip-price">From $3,800</span>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Trip Card 3 -->
+      <div class="trip-card">
+        <div class="trip-image">
+          <img src="images/expadition/Expedition-1.jpg" alt="Laila Peak Expedition">
+          <div class="trip-badge">6000m Peak</div>
+        </div>
+        <div class="trip-content">
+          <h3>Laila Peak Expedition (6096m)</h3>
+          <div class="trip-meta">
+            <span><i class="fas fa-calendar-alt"></i> 20 Days</span>
+            <span><i class="fas fa-mountain"></i> Technical</span>
+          </div>
+          <p>Famous for its dramatic spear-like shape, this peak offers a challenging climb in the Hushe Valley.</p>
+          <div class="trip-footer">
+            <span class="trip-price">From $4,500</span>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Call to Action -->
+  <section class="cta-section" style="background-image: url('images/expadition/bandit\ peak\ expadition.jpeg');">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready for Your Adventure?</h2>
+        <p>Contact our expert team to plan your perfect mountain experience</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary">Book Now</a>
+          <a href="#" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/logo/Climbing_Karakorum_logo-02-removebg-preview.png" alt="Climbing Karakoram"
+            class="footer-logo">
+          <p>Providing unforgettable mountain experiences since 2005. Our expert guides will take you safely to the most
+            spectacular locations in the Karakoram, Himalaya, and Hindu Kush ranges.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Expeditions</a></li>
+            <li><a href="#">Trekking</a></li>
+            <li><a href="#">Tours</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Expeditions</h3>
+          <ul>
+            <li><a href="bonditpeak.html">Bondit Peak</a></li>
+            <li><a href="#">K2 Expeditions</a></li>
+            <li><a href="#">Broad Peak</a></li>
+            <li><a href="#">Gasherbrum I & II</a></li>
+            <li><a href="#">Nanga Parbat</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <address>
+            <p><i class="fas fa-map-marker-alt"></i> Skardu Road, Gilgit-Baltistan, Pakistan</p>
+            <p><i class="fas fa-phone-alt"></i> +92-332-5499737</p>
+            <p><i class="fas fa-envelope"></i> info@climbingkarakorum.com</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Climbing Karakorum. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+
+      function toggleMobileMenu() {
+        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+        mobileMenuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      }
+
+      mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+      // Dropdown menus
+      const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+      dropdownBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.dropdown-btn').forEach(otherBtn => {
+            if (otherBtn !== this) {
+              otherBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+          this.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function () {
+        dropdownBtns.forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Itinerary accordion
+      const itineraryItems = document.querySelectorAll('.itinerary-item');
+
+      itineraryItems.forEach(item => {
+        const header = item.querySelector('.itinerary-header');
+
+        header.addEventListener('click', () => {
+          // Close other items
+          itineraryItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+
+            // Close mobile menu if open
+            if (mainNav.classList.contains('active')) {
+              toggleMobileMenu();
+            }
+          }
+        });
+      });
+    });
+    // Contact Form Handling
+    const contactForm = document.getElementById('expeditionContactForm');
+    const formContainer = document.querySelector('.contact-form-container');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Form validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill in all required fields');
+        return;
+      }
+
+      // In a real implementation, you would send the form data to your server here
+      // For this example, we'll just simulate a successful submission
+
+      // Show loading state
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+
+      // Simulate server request
+      setTimeout(() => {
+        // Add submitted class to show success message
+        formContainer.classList.add('form-submitted');
+
+        // Reset form (for demo purposes)
+        setTimeout(() => {
+          contactForm.reset();
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          formContainer.classList.remove('form-submitted');
+        }, 5000); // Hide success message after 5 seconds in this demo
+      }, 1500); // Simulate network delay
+    });
+
+    // Phone number input formatting
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function (e) {
+        const x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+      });
+    }
+    // Related trips carousel functionality for mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    const tripGrid = document.querySelector('.trip-grid');
+    
+    function setupTripCarousel() {
+      if (window.innerWidth < 768) {
+        if (!tripGrid.classList.contains('slick-initialized')) {
+          $(tripGrid).slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+          });
+        }
+      } else {
+        if (tripGrid.classList.contains('slick-initialized')) {
+          $(tripGrid).slick('unslick');
+        }
+      }
+    }
+    
+    // Initialize on load
+    setupTripCarousel();
+    
+    // Re-initialize on resize
+    window.addEventListener('resize', setupTripCarousel);
+  });
+  </script>
+</body>
+
+</html>

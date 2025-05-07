@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Climbing Karakoram - Premier mountaineering and trekking expeditions in Pakistan's majestic mountain ranges">
+    <title>Climbing Karakorum - Adventure Expeditions & Trekking</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .booking-form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .booking-form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a56a7;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #1a56a7;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .date-picker {
+            position: relative;
+        }
+
+        .date-picker-input {
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+
+        .calendar {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 15px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .month-year {
+            font-weight: 600;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 600;
+            padding: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .day {
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .day:hover {
+            background: #f0f0f0;
+        }
+
+        .day.selected {
+            background: #1a56a7;
+            color: white;
+        }
+
+        .day.other-month {
+            color: #ccc;
+        }
+
+        .day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #1a56a7;
+        }
+
+        .btn-book-now {
+            width: 100%;
+            padding: 15px;
+            background: #1a56a7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-book-now:hover {
+            background: #15417e;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .booking-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +92-332-5499737</span>
+        <span><i class="fas fa-envelope"></i> info@baltistanadventure.com</span>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo/Climbing_Karakorum_logo-02-removebg-preview.png" alt="Climbing Karakoram Logo" width="120"
+          height="120">
+        <span class="logo-text">Climbing Karakorum</span>
+      </a>
+
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="#" class="nav-link active">Home</a></li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Expeditions <i class="fas fa-chevron-down dropdown-icon"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">6000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="bonditpeak.html">Bondit Peak Expeditions</a></li>
+                    <li><a href="Drifikapeak.html">Drifika Peak Expeditions</a></li>
+                    <li><a href="gondogoro-peak.html">Gandogoro Peak Expeditions</a></li>
+                    <li><a href="lailapeak.html">Laila Peak Expeditions</a></li>
+                    <li><a href="pajupeak.html">Paju Peak Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">7000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="rakaposhipeak.html">Rakaposhi Expeditions</a></li>
+                    <li><a href="masherbrumpeak.html">Masherbrum Expeditions</a></li>
+                    <li><a href="spantikpeak.html">Spantik Expeditions</a></li>
+                    <li><a href="diranpeak.html">Diran Peak Expeditions</a></li>
+                    <li><a href="gasherbrum4peak.html">Gasherbrum 4 Expeditions</a></li>
+                    <li><a href="gasherbrum6peak.html">Gasherbrum 6 Expeditions</a></li>
+                    <li><a href="passupeak.html">Passu Sar Expeditions</a></li>
+                    <li><a href="ultrapeak.html">Ultra Sar Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">8000M Peaks <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="K2peak.html">K2 Expeditions</a></li>
+                    <li><a href="Broadpeak.html">Broad Peak Expeditions</a></li>
+                    <li><a href="Gasherbrum1peak.html">Gasherbrum I Expeditions</a></li>
+                    <li><a href="Gasherbrum2peak.html">Gasherbrum 2 Expeditions</a></li>
+                    <li><a href="Nangaparbatpeak.html">Nanga Parbat Expeditions</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Rock Climbing <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="Trangotowerpeak.html">Trango Tower Expeditions</a></li>
+                    <li><a href="Nangmavalleypeak.html">Nangma Valley Expeditions</a></li>
+                    <li><a href="Latokogrepeak.html">Latok Ogre Expeditions</a></li>
+                    <li><a href="Shiptonspairpeak.html">Shipton Spair Expeditions</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Trekking <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Karakoram Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">K2 B.C & Gandogoro La Trek</a></li>
+                    <li><a href="#">K2 Gandogoro La Trek</a></li>
+                    <li><a href="#">Biafo & Snow Lake Trek</a></li>
+                    <li><a href="#">Charakusa valley Trek</a></li>
+                    <li><a href="#">Iqbal Top Trek</a></li>
+                    <li><a href="#">Nangma Valley Trek</a></li>
+                    <li><a href="#">Masherbrum Base Camp Trek</a></li>
+                    <li><a href="#">Five Base Camp Trek</a></li>
+                    <li><a href="#">Pastore Base Camp Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Himalayan Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Hindush Range <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nalter Ishkoman Trek</a></li>
+                    <li><a href="#">Trich Mir Base Camp Trek</a></li>
+                    <li><a href="#">Chilinji Pass Trek</a></li>
+                    <li><a href="#">Darkot Pass Trek</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                Tours <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Autumn Session <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Spring Session <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Summer Season <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Winter Season <i class="fas fa-chevron-right"></i></button>
+                  <ul class="submenu-list">
+                    <li><a href="#">Nanga Parbat Diamir Face Trek</a></li>
+                    <li><a href="#">Around Nanga Parbat Trek</a></li>
+                    <li><a href="#">Nanga Parbat Raikot Face Trek</a></li>
+                    <li><a href="#">Nanga Parbat Rupal Face Trek</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+              Travel Info <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="submenu">
+                  <button class="submenu-btn">Mountaineering Rule</button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Mountains list in Pakistan </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Peak royalty in Pakistan </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Trem and conditions </button>
+                </li>
+                <li class="submenu">
+                  <button class="submenu-btn">Company info, Vision statement, Mission</button>
+                </li>
+              </ul>
+            </li>
+
+
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+        <a href="#" class="btn btn-primary book-now-btn">Book Now <i class="fas fa-arrow-right"></i></a>
+      
+    </div>
+  </header>
+
+    <div class="booking-form-container">
+        <div class="booking-form">
+            <h2 class="form-title">Book Your Adventure</h2>
+            <p class="form-subtitle">Fill out the form below to reserve your spot on this expedition</p>
+
+            <form id="bookingForm" action="https://formsubmit.co/info@climbingkarakorum.com" method="POST">
+                <input type="hidden" name="_subject" value="New Booking Request - Climbing Karakoram">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_autoresponse" value="Thank you for your booking request with Climbing Karakoram! We've received your information and will contact you shortly to confirm your adventure.">
+                
+                <div class="form-group">
+                    <label for="full_name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="full_name" name="name" placeholder="E.g. John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="E.g. john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="E.g. +92 332 5499737" required value="+923440116403">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group date-picker">
+                        <label for="start_date">Start Date <span class="required">*</span></label>
+                        <input type="text" id="start_date" class="date-picker-input start-date" name="start_date" placeholder="Select start date" readonly required value="May 7, 2025">
+                        <div class="calendar" id="start-calendar">
+                            <div class="calendar-header">
+                                <button type="button" class="nav-button prev-month">&lt;</button>
+                                <div class="month-year">May 2025</div>
+                                <button type="button" class="nav-button next-month">&gt;</button>
+                            </div>
+                            <div class="calendar-grid">
+                                <!-- Days will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group date-picker">
+                        <label for="end_date">End Date <span class="required">*</span></label>
+                        <input type="text" id="end_date" class="date-picker-input end-date" name="end_date" placeholder="Select end date" readonly required value="June 8, 2025">
+                        <div class="calendar" id="end-calendar">
+                            <div class="calendar-header">
+                                <button type="button" class="nav-button prev-month">&lt;</button>
+                                <div class="month-year">June 2025</div>
+                                <button type="button" class="nav-button next-month">&gt;</button>
+                            </div>
+                            <div class="calendar-grid">
+                                <!-- Days will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="participants">Number of Participants <span class="required">*</span></label>
+                    <input type="number" id="participants" name="participants" min="1" max="20" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Special Requirements</label>
+                    <textarea id="requirements" name="requirements" placeholder="Dietary needs, medical conditions, etc." rows="3">medical store</textarea>
+                </div>
+
+                <!-- Honeypot field for spam prevention -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- Disable CAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
+
+                <button type="submit" class="btn-book-now">Book Now <i class="fas fa-arrow-right"></i></button>
+
+                <div id="formMessage" class="form-message error" style="display: block;">
+                    There was a problem submitting your form. Please try again or contact us directly at info@climbingkarakorum.com
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/logo/Climbing_Karakorum_logo-02-removebg-preview.png" alt="Climbing Karakoram"
+            class="footer-logo">
+          <p>Providing unforgettable mountain experiences since 2005. Our expert guides will take you safely to the most
+            spectacular locations in the Karakoram, Himalaya, and Hindu Kush ranges.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Expeditions</a></li>
+            <li><a href="#">Trekking</a></li>
+            <li><a href="#">Tours</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Expeditions</h3>
+          <ul>
+            <li><a href="#">K2 Expeditions</a></li>
+            <li><a href="#">Broad Peak</a></li>
+            <li><a href="#">Gasherbrum I & II</a></li>
+            <li><a href="#">Nanga Parbat</a></li>
+            <li><a href="#">Spantik</a></li>
+            <li><a href="#">Rakaposhi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <address>
+            <p><i class="fas fa-map-marker-alt"></i> Skardu Road, Gilgit-Baltistan, Pakistan</p>
+            <p><i class="fas fa-phone-alt"></i> +92-332-5499737</p>
+            <p><i class="fas fa-envelope"></i> info@climbingkarakorum.com</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Climbing Karakorum. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize both calendars
+            initCalendar('start-calendar', 'start');
+            initCalendar('end-calendar', 'end');
+            
+            function initCalendar(calendarId, type) {
+                const datePickerInput = document.querySelector(`.${type}-date`);
+                const calendar = document.getElementById(calendarId);
+                const monthYearDisplay = calendar.querySelector('.month-year');
+                const prevMonthBtn = calendar.querySelector('.prev-month');
+                const nextMonthBtn = calendar.querySelector('.next-month');
+                const calendarGrid = calendar.querySelector('.calendar-grid');
+                
+                // Set initial date based on input value or current date
+                let currentDate;
+                if (datePickerInput.value) {
+                    const dateParts = datePickerInput.value.split(' ');
+                    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    const monthIndex = monthNames.indexOf(dateParts[0]);
+                    const day = parseInt(dateParts[1].replace(',', ''));
+                    const year = parseInt(dateParts[2]);
+                    currentDate = new Date(year, monthIndex, 1);
+                } else {
+                    currentDate = new Date();
+                }
+                
+                let selectedDate = null;
+                
+                // Toggle calendar visibility
+                datePickerInput.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Hide all other calendars first
+                    document.querySelectorAll('.calendar').forEach(cal => {
+                        if (cal.id !== calendarId) cal.style.display = 'none';
+                    });
+                    calendar.style.display = calendar.style.display === 'block' ? 'none' : 'block';
+                    renderCalendar();
+                });
+                
+                // Navigation buttons
+                prevMonthBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    renderCalendar();
+                });
+                
+                nextMonthBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    renderCalendar();
+                });
+                
+                // Render the calendar
+                function renderCalendar() {
+                    const year = currentDate.getFullYear();
+                    const month = currentDate.getMonth();
+                    
+                    // Update month/year display
+                    monthYearDisplay.textContent = `${getMonthName(month)} ${year}`;
+                    
+                    // Get first day of month and total days
+                    const firstDay = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+                    const daysInPrevMonth = new Date(year, month, 0).getDate();
+                    
+                    // Clear existing days (except headers)
+                    while (calendarGrid.children.length > 7) {
+                        calendarGrid.removeChild(calendarGrid.lastChild);
+                    }
+                    
+                    // Add day headers
+                    const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                    dayNames.forEach(day => {
+                        const dayHeader = document.createElement('div');
+                        dayHeader.className = 'day-header';
+                        dayHeader.textContent = day;
+                        calendarGrid.appendChild(dayHeader);
+                    });
+                    
+                    // Add days from previous month
+                    for (let i = firstDay - 1; i >= 0; i--) {
+                        const dayElement = document.createElement('div');
+                        dayElement.className = 'day other-month';
+                        dayElement.textContent = daysInPrevMonth - i;
+                        calendarGrid.appendChild(dayElement);
+                    }
+                    
+                    // Add days of current month
+                    for (let i = 1; i <= daysInMonth; i++) {
+                        const dayElement = document.createElement('div');
+                        dayElement.className = 'day';
+                        dayElement.textContent = i;
+                        
+                        // Check if this is the selected date
+                        if (selectedDate && 
+                            selectedDate.getDate() === i && 
+                            selectedDate.getMonth() === month && 
+                            selectedDate.getFullYear() === year) {
+                            dayElement.classList.add('selected');
+                        }
+                        
+                        // Check if this date matches the input value
+                        if (datePickerInput.value) {
+                            const dateParts = datePickerInput.value.split(' ');
+                            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                            const inputMonthIndex = monthNames.indexOf(dateParts[0]);
+                            const inputDay = parseInt(dateParts[1].replace(',', ''));
+                            const inputYear = parseInt(dateParts[2]);
+                            
+                            if (inputDay === i && inputMonthIndex === month && inputYear === year) {
+                                dayElement.classList.add('selected');
+                                selectedDate = new Date(year, month, i);
+                            }
+                        }
+                        
+                        // Disable past dates
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        const currentDay = new Date(year, month, i);
+                        if (currentDay < today) {
+                            dayElement.classList.add('disabled');
+                        } else {
+                            dayElement.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                selectedDate = new Date(year, month, i);
+                                datePickerInput.value = `${getMonthName(month)} ${i}, ${year}`;
+                                calendar.style.display = 'none';
+                                
+                                // Update selected state
+                                document.querySelectorAll(`#${calendarId} .day`).forEach(day => {
+                                    day.classList.remove('selected');
+                                });
+                                dayElement.classList.add('selected');
+                                
+                                // If this is the start date calendar and end date is before start date, update end date
+                                if (type === 'start') {
+                                    const endDateInput = document.querySelector('.end-date');
+                                    const endDate = new Date(endDateInput.value);
+                                    if (endDateInput.value && endDate < selectedDate) {
+                                        endDateInput.value = datePickerInput.value;
+                                    }
+                                }
+                            });
+                        }
+                        
+                        calendarGrid.appendChild(dayElement);
+                    }
+                    
+                    // Add days from next month to fill grid
+                    const totalCells = firstDay + daysInMonth;
+                    const remainingCells = 42 - totalCells; // 6 rows x 7 days
+                    
+                    for (let i = 1; i <= remainingCells; i++) {
+                        const dayElement = document.createElement('div');
+                        dayElement.className = 'day other-month';
+                        dayElement.textContent = i;
+                        calendarGrid.appendChild(dayElement);
+                    }
+                }
+                
+                function getMonthName(monthIndex) {
+                    const months = [
+                        'January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'
+                    ];
+                    return months[monthIndex];
+                }
+                
+                // Initial render
+                renderCalendar();
+            }
+            
+            // Close calendars when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.calendar').forEach(cal => {
+                    cal.style.display = 'none';
+                });
+            });
+            
+            // Form submission handling
+            const bookingForm = document.getElementById('bookingForm');
+            const formMessage = document.getElementById('formMessage');
+            
+            bookingForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitBtn = bookingForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                submitBtn.disabled = true;
+                
+                // Validate form
+                const requiredFields = bookingForm.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#e74c3c';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (!isValid) {
+                    showMessage('Please fill in all required fields', 'error');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                // Validate dates
+                const startDate = new Date(document.getElementById('start_date').value);
+                const endDate = new Date(document.getElementById('end_date').value);
+                
+                if (startDate >= endDate) {
+                    showMessage('End date must be after start date', 'error');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                try {
+                    // Submit form using FormSubmit
+                    const formData = new FormData(bookingForm);
+                    
+                    const response = await fetch(bookingForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        showMessage('Thank you for your booking! We will contact you soon.', 'success');
+                        bookingForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showMessage('There was a problem submitting your form. Please try again or contact us directly at info@climbingkarakorum.com', 'error');
+                } finally {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            function showMessage(message, type) {
+                formMessage.textContent = message;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+
+    <!-- Your existing scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
